@@ -1,0 +1,16 @@
+.container input{
+    width:75%;
+    margin-bottom:30px;
+    margin-right: 10px;
+    padding: 10px 20px;
+border: 1px solid silver;
+border-radius: 10px;
+}
+
+.container button{
+    padding: 10px 20px;
+    border: none;
+    background-color: rgb(67, 23, 240);
+    color: white;
+    border-radius:5px;
+}
