@@ -1,8 +1,13 @@
+import {  useContext } from "react";
 import ContactItem from "./ContactItem"
 import styles from "./Contactslist.module.css";
+import { UserContext } from "./Contacts";
 
-function ContactList({contacts,deletHandler,editHandler}) {
-   
+
+//{contacts,deletHandler,editHandler}
+function ContactList() {
+ const {contacts}=useContext(UserContext);   
+    console.log(contacts);
     
   return (
     <div className={styles.container}>
@@ -12,9 +17,9 @@ function ContactList({contacts,deletHandler,editHandler}) {
                 {contacts.map((contact)=>(
 <ContactItem
  key={contact.id} 
- data={contact}
-deletHandler={deletHandler}
-editHandler={editHandler}
+//  data={contact}
+// deletHandler={deletHandler}
+// editHandler={editHandler}
  />
                 ))}
             </ul>

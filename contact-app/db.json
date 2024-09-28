@@ -1,0 +1,23 @@
+{
+    "contacts":[
+        {
+            "id":1,
+            "name":"zahra shahriari",
+            "emial":"zahra.shahriari@gmail.com",
+            "phone":"0912345655"
+        },
+        {
+            "id":12,
+            "name":" sam mohammadi",
+            "emial":"sam.mohammadi@gmail.com",
+            "phone":"0912345655"
+        },
+        {
+            "id":6,
+            "name":"ali shahba",
+            "emial":"ali.shahba@gmail.com",
+            "phone":"0912908070"
+        }
+
+    ]
+}

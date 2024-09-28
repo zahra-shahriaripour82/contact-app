@@ -1,4 +1,7 @@
-import { useState } from "react"
+import {useState } from "react"
+
+import { createContext } from "react";
+
 
 import {v4} from "uuid";
 import ContactList from "./ContactList"
@@ -6,6 +9,13 @@ import ContactList from "./ContactList"
 import { inputs as inputsData }  from "../constant/input";
 import styles from "./Contact.module.css"
 import Search from "./Search";
+
+export const UserContext=createContext(); 
+
+
+
+
+
 function Contacts() {
     
     const[search,setSearch]=useState([]);
@@ -27,13 +37,7 @@ console.log(inputs);
         email:"",
         phone:"",
     })
-// const [edit,setEdit]=useState({
-//     id:contact.id,
-//         name:"",
-//         lastName:"",
-//         email:"",
-//         phone:"",
-// })
+
 
     const changeHandler=()=>{
         const name=event.target.name;
@@ -60,16 +64,16 @@ setAlert("");
         phone:"",
     }
    )
-//    updateContact(contact)
+
 }
-console.log(contacts);
+// console.log(contacts);
 //  setInput(contacts);
 const deletHandler=(id)=>{
     const newContacts=contacts.filter((contact)=>contact.id!==id);
     setContacts(newContacts)
 }
 const editHandler=(contact)=>{
-// const editConact=contacts.filter((contact)=>contact.id===id
+
 setContact({
     name:contact.name,
     lastName:contact.lastName,
@@ -149,7 +153,13 @@ return (
             <input type="number" placeholder="Phone" name="phone" value={contact.phone} onChange={changeHandler} /> */}
         </div>
         <div className={styles.alert}>{alert && <p>{alert}</p>}</div>
-        <ContactList contacts={contacts} deletHandler={deletHandler} editHandler={editHandler}/>
+       
+        <UserContext.Provider value={{contacts,deletHandler,editHandler}}>
+
+        <ContactList />
+        {/* contacts={contacts} deletHandler={deletHandler} editHandler={editHandler} */}
+        </UserContext.Provider>
+    
     </div>
     </>
   )
